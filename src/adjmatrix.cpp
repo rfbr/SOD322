@@ -10,23 +10,22 @@
 Adjmatrix::Adjmatrix(): n(0), e(0){}
 
 Adjmatrix read_adj_matrix(char* input){
-    unsigned long n = NLINKS;
+    unsigned long e = NLINKS;
     FILE *file = fopen(input, "r");
     Adjmatrix adj_matrix;
 
-    vector<edge> edges(n);
-    adj_matrix.edges = edges;
+    adj_matrix.edges = (edge*) malloc(e*sizeof(edge));
 
     while(fscanf(file,"%lu %lu", &(adj_matrix.edges[adj_matrix.e].s),&(adj_matrix.edges[adj_matrix.e].t))==2){
         adj_matrix.n = max(max(adj_matrix.n,adj_matrix.edges[adj_matrix.e].s),adj_matrix.edges[adj_matrix.e].t);
-        if(++(adj_matrix.e)==n){
-            n+=NLINKS;
-            adj_matrix.edges.resize(n);
+        if(++(adj_matrix.e)==e){
+            e+=NLINKS;
+            adj_matrix.edges = (edge*) realloc(adj_matrix.edges,e*sizeof(edge));
         }
     }
     fclose(file);
     adj_matrix.n++;
-    adj_matrix.edges.resize(adj_matrix.e*sizeof(edge));
+    adj_matrix.edges = (edge*) realloc(adj_matrix.edges,e*sizeof(edge));
     return adj_matrix;
 }
 

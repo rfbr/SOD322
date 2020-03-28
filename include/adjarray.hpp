@@ -2,7 +2,6 @@
 #define __ADJARRAY__
 #include <vector>
 #include "../include/edge.hpp"
-#include "../include/graph.hpp"
 
 using namespace std;
 
@@ -11,9 +10,9 @@ class Adjlist
     public:
         unsigned long n;
         unsigned long e;
-        vector<edge> edges;
-        vector<unsigned long> cd;
-        vector<unsigned long> adj;
+        edge * edges;
+        unsigned long * cd;
+        unsigned long * adj;
         //Constructor
         Adjlist();
 };

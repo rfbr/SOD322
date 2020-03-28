@@ -13,7 +13,7 @@ class Edgelist
     public:
         unsigned long n;
         unsigned long e;
-        vector<edge> edges;
+        edge* edges;
         //Constructeurs
         Edgelist();
         Edgelist(unsigned long n,unsigned long e);

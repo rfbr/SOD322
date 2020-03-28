@@ -9,8 +9,8 @@ class Adjmatrix
     public:
         unsigned long n;
         unsigned long e;
-        vector<edge> edges;
-        vector<bool> mat;
+        edge * edges;
+        bool* mat;
         //Constructor
         Adjmatrix();
 };
