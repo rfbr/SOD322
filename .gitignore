@@ -1,5 +1,5 @@
 # Ignore any executables
-bin/*
+*/bin/*
 
 # Ignore vscode files
 .vscode
