@@ -31,7 +31,7 @@ Adjmatrix read_adj_matrix(char* input){
 
 void mkadjmatrix(Adjmatrix& g){
     unsigned long i,u,v;
-    g.mat =  vector<bool>(g.n*g.n);
+    g.mat = (bool*) malloc(g.n*g.n);
     for(i=0;i<g.e;i++){
         u = g.edges[i].s;
         v = g.edges[i].t;
