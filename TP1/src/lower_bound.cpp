@@ -3,34 +3,34 @@
 #include <queue>
 #include<iterator>
 #include<list>
+#include <bits/stdc++.h> 
 #include "../include/adjlist.hpp"
 using namespace std;
 
 unsigned long bfs_lower_bound(Adjlist& graph, unsigned long & node){
-    bool* mark = (bool*) calloc(graph.n,sizeof(bool));
+
+    bool* mark = (bool*) malloc(graph.n);
     queue<unsigned long> fifo;
+    vector<int> distances(graph.n,0);
+    unsigned long u;
+
     fifo.push(node);
     mark[node] = 1;
-    unsigned long u;
-    unsigned long distance = 0;
-    bool new_layer = true;
     while(!fifo.empty()){
         u = fifo.front();
         fifo.pop();
         list<unsigned long> :: iterator it;
         for(it = graph.adj[u].begin(); it != graph.adj[u].end(); ++it){
-            cout << *it << " ";
-            if(!mark[*it]){
-                if (new_layer) distance ++;
-                new_layer = false;
-                fifo.push(*it);
-                mark[*it] = 1; 
+            unsigned long neighbour = *it;
+            if(!mark[neighbour]){
+                distances[neighbour] = distances[u]+1;
+                fifo.push(neighbour);
+                mark[neighbour] = 1; 
             }
         }
-        new_layer = true;
     }
     node = u;
-    return distance;
+    return *max_element(distances.begin(), distances.end());
 }
 
 
@@ -50,7 +50,7 @@ int main(int argc, char** argv){
     cout << "Computing lower bound estimation...\n";
     unsigned long found_diameter;
     unsigned long lower_bound = 0;
-    for(int i=0;i<100;i++){
+    for(int i=0;i<10;i++){
         unsigned long rand_node = rand()%g.n;
         bfs_lower_bound(g,rand_node);
         found_diameter = bfs_lower_bound(g,rand_node);
