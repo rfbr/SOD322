@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Kcore::Kcore(string InputNodes, string InputEdges): G(InputNodes, InputEdges)
+Kcore::Kcore(string InputEdges): G(InputEdges)
 {
 
 }
@@ -24,6 +24,8 @@ Kcore::~Kcore()
 void Kcore::algorithm()
 {	
 	cout << "k-core decomposition !" << endl;
+	chrono::time_point<chrono::system_clock> start, end;
+	start = chrono::system_clock::now();
 	int c = 0;
 	int count = 0;
 	while (!G.adj_list.empty())
@@ -48,7 +50,10 @@ void Kcore::algorithm()
 		}
 		G.drop(min_degree[0]);
 	}
-	cout << "completed" << endl;
+	end = chrono::system_clock::now();
+	float elapsed_time = chrono::duration_cast<chrono::seconds> (end - start).count();
+	cout << "core value : " << c << endl;
+	cout << "completed in " << elapsed_time << " seconds" << endl;
 }
 
 vector<int> Kcore::findMinimum()

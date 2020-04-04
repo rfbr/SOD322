@@ -16,7 +16,7 @@ using namespace std;
 class AdjacencyList
 {
 	public:
-		AdjacencyList(string, string);
+		AdjacencyList(string);
 		~AdjacencyList();
 	 	void drop(int);
 

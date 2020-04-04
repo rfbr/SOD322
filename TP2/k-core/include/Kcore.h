@@ -8,8 +8,10 @@
 #include <stdlib.h>
 #include <fstream>
 #include <map>
+#include <chrono>
+#include <ctime>
 
-#include "AdjacencyList.h"
+#include "../include/AdjacencyList.h"
 
 using namespace std;
 
@@ -17,7 +19,7 @@ class Kcore
 {	
 	public:
 
-	Kcore(string, string);
+	Kcore(string);
 	~Kcore();
 
 	void algorithm();
