@@ -10,6 +10,7 @@
 #include <map>
 #include <chrono>
 #include <ctime>
+#include <bits/stdc++.h>
 
 #include "../include/AdjacencyList.h"
 

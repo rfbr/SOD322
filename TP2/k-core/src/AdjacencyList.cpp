@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <fstream>
 #include <map>
+#include <bits/stdc++.h>
 
 #include "../include/AdjacencyList.h"
 
