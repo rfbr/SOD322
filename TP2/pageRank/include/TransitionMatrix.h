@@ -24,6 +24,8 @@ class TransitionMatrix
     map<int, int> degrees;
     map<int, int> id_nodes;
     map<int, int> id_nodes_inverse;
+    map<int, string> index_names;
+
     int num_nodes;
     int num_edges;
     map<int, vector<int> > predecessors;

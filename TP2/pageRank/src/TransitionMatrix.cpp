@@ -23,6 +23,7 @@ TransitionMatrix::TransitionMatrix(string inputFileNodes, string inputFileEdges)
 	cout << "number of edges : " << num_edges << endl;
 	cout << "degrees ..." << endl;
 	buildDegrees();
+
 }
 
 
@@ -51,7 +52,7 @@ void TransitionMatrix::findNumNodes()
 		string line;
 		int count = 0;
 		int node;
-		while (count <= 8)
+		while (count <= 4)
 		{	
 			getline(file_nodes, line);
 			count += 1;
@@ -63,7 +64,9 @@ void TransitionMatrix::findNumNodes()
 			{
 				id_nodes[node] = num_nodes;
 				id_nodes_inverse[num_nodes] = node;
+				index_names[num_nodes] = line;
 				num_nodes += 1;
+
 			}
 
 		}
@@ -82,7 +85,7 @@ void TransitionMatrix::buildEdges()
 		int count = 0;
 		int node;
 		vector<int> edge(2);
-		while (count <= 8)
+		while (count <= 0)
 		{	
 			string comment;
 			getline(file_edges, line);
@@ -119,13 +122,13 @@ void TransitionMatrix::buildDegrees()
 {	
 	for (auto &edge : edges)
 	{ 
-		if (degrees.count(edge[0]) == 0)
+		if (degrees.count(id_nodes[edge[0]]) == 0)
 		{	
-			degrees[edge[0]] = 1;
+			degrees[id_nodes[edge[0]]] = 1;
 		}
 		else
 		{	
- 			degrees[edge[0]] += 1;
+ 			degrees[id_nodes[edge[0]]] += 1;
 		}
 	}		
 }
