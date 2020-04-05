@@ -15,7 +15,7 @@ int main(int argc,char** argv)
 	K.algorithm();
 	string tmp(argv[1]);
 	ofstream results("results_" + tmp);
-	for (auto &x: K.kcore_map)
+	for (auto &x: K.kcore_unordered_map)
 	{
 		results << "k = " << x.first << endl;
 		for (int node : x.second)
