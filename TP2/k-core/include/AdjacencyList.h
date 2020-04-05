@@ -18,20 +18,24 @@ class AdjacencyList
 	public:
 		AdjacencyList(string);
 		~AdjacencyList();
-	 	void drop(int);
+	 	void drop(int, int);
 
-	 	map<int, set<int> > adj_list;
+	 	unordered_map<int, set<int> > adj_list;
+	    unordered_map<int, int> degrees;
+	    unordered_map<int, set<int> > grouped_by_degrees;
 	 	int num_nodes;
+	 	int max_degree;
 
 	private:
 
 	    string path_file_edges;
 	    string path_file_nodes;
 	    ifstream file_edges;
-	    ifstream file_nodes;	
+	    ifstream file_nodes;
 
 		void buildAdjacencyList();
 		void findNumNodes();
+		void findMaximum();
 
 };
 

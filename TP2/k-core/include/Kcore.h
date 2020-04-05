@@ -24,13 +24,15 @@ class Kcore
 
 	void algorithm();
 
-	map<int, vector<int> > kcore_map;
+	unordered_map<int, vector<int> > kcore_unordered_map;
 
 	private:
 
 	AdjacencyList G;
 
-	vector<int> findMinimum(); 
+	pair<int,int> findMinimum(); 
+
 };
+
 
 #endif
