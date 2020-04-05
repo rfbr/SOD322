@@ -1,8 +1,8 @@
-# Ignore any executables
-*/bin/*
-
 # Ignore vscode files
 .vscode
 
 # Ignore graphs files
 graphs
+
+# Ignore result files
+/*/*/results

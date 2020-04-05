@@ -1,5 +1,5 @@
-#ifndef __EDGE__
-#define __EDGE__
+#ifndef __EDGELIST__
+#define __EDGELIST__
 
 using namespace std;
 struct edge
@@ -21,5 +21,4 @@ class Edgelist
 
 Edgelist read_edge_list(char* input);
 
-void free_edgelist(Edgelist& e_list);
 #endif

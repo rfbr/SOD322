@@ -1,7 +1,7 @@
 #ifndef __ADJLIST__
 #define __ADJLIST__
 #include <vector>
-#include "../include/edge.hpp"
+#include "../include/edgelist.hpp"
 #include <list>
 #include <vector>
 using namespace std;
@@ -13,7 +13,6 @@ class Adjlist
         unsigned long e;
         edge * edges;
         vector<list<unsigned long>> adj;
-
         //Constructor
         Adjlist();
 };

@@ -1,8 +1,9 @@
-#ifndef __ADJARRAY__
-#define __ADJARRAY__
+#ifndef __ADJLIST_WITH_DEGREE__
+#define __ADJLIST_WITH_DEGREE__
 #include <vector>
-#include "../include/edge.hpp"
-
+#include "../include/edgelist.hpp"
+#include <list>
+#include <vector>
 using namespace std;
 
 class Adjlist
@@ -11,8 +12,8 @@ class Adjlist
         unsigned long n;
         unsigned long e;
         edge * edges;
-        unsigned long * cd;
-        unsigned long * adj;
+        vector<list<unsigned long>> adj;
+        unsigned long * d;
         //Constructor
         Adjlist();
 };

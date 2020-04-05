@@ -1,7 +1,7 @@
 #ifndef __ADJMATRIX__
 #define __ADJMATRIX__
 #include <vector>
-#include "../include/edge.hpp"
+#include "../include/edgelist.hpp"
 using namespace std;
 
 class Adjmatrix
