@@ -5,4 +5,7 @@
 graphs
 
 # Ignore result files
-/*/*/results
+/*/*/results/*
+
+# Ignore pycache
+*/__pycache__
